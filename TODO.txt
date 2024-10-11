@@ -1,0 +1,52 @@
+## Move failed_login_attempts out the DB and use Redis to save it in memory. Its faster that way. 
+## Add account data to the create_user_open endpoint
+## Add an endpoint to delete users. DONE
+
+## Need to implement the admin token Dependency on the superUser endpoints!! WORKING
+
+
+changed the env file to auth-server.env and added it to the yaml file
+Added some new fields to the user and account tables to implement 2FA
+Removed failed_login_attempts
+Updated schemas, models, Alembic, 
+Fixed the init_db_code
+Began to code in the 2Fa framework.
+Testing the CreateUser, update_me, getAllUsers, get user by id, update by id
+
+
+Need to create some templates for password recovery... working    DONE
+Need to implement 2FA, endpoints, etc.... working    DONE
+
+WORK ON 2FA
+work on generating and verifying the admin token.. What should it encode?
+Get it to send 2FA code and verify the code. DONE
+   Sends Ok, work on Verify, DONE
+
+work on create user admin    DONE
+* work on resend email verify     DONE
+
+* work on admin token logic    DONE
+
+* adjust the account table. remove the fields that are redundant
+
+11/15/2023
+Create some Admin endpoints to poke around on the system. They can update, delete, logout any user. should make an admin 
+mesaging system to send messgaes to users. Or implement an Admin to user websocket chat. but this feature is hidden. Only I can 
+initiate the chat, but the user and administartor can chat back and forth. WOuld be cool is someone broke in. I could message the fucker.
+
+I should be able to block or lockout a user.
+
+ 
+DATaBASE revision:
+  - user:
+     + ADD is_deleted 
+     + ADD user_notes
+  - account:
+     - REMOVE cell_provider_2FA
+     - RENAME subscription_type, app_tier
+
+Ad logo to VerifyEmail Email
+add Oauth
+add 
+
+
